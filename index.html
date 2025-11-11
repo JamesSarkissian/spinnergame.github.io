@@ -16,3 +16,34 @@
   <button type="button">SPIN</button>
 </fieldset>
 
+<script>
+function wheelOfFortune(selector) {
+  const node = document.querySelector(selector);
+  if (!node) return;
+
+  const spin = node.querySelector('button');
+  const wheel = node.querySelector('ul');
+  let animation;
+  let previousEndDegree = 0;
+
+  spin.addEventListener('click', () => {
+    if (animation) animation.cancel();
+
+    const randomAdditionalDegrees = Math.random() * 360 + 1800;
+    const newEndDegree = previousEndDegree + randomAdditionalDegrees;
+
+    animation = wheel.animate([
+      { transform: `rotate(${previousEndDegree}deg)` },
+      { transform: `rotate(${newEndDegree}deg)` }
+    ], {
+      duration: 4000,
+      easing: 'cubic-bezier(0.44,-0.205,0,1.13)',
+      fill: 'forwards'
+    });
+
+    previousEndDegree = newEndDegree;
+  });
+}
+
+wheelOfFortune('.ui-wheel-of-fortune');
+</script>
