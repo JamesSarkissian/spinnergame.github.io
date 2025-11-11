@@ -33,9 +33,7 @@ body {
   position: absolute;
   width: 50%;
   height: 50%;
-  top: 50%;
-  left: 50%;
-  transform-origin: 0% 0%;
+  transform-origin: 100% 100%;
   background: hsl(calc(var(--i) * 45), 70%, 60%);
   display: flex;
   justify-content: center;
@@ -45,18 +43,24 @@ body {
   font-size: 1rem;
   text-shadow: 0 0 3px #000;
   border: 1px solid #fff3;
-  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+  clip-path: polygon(100% 100%, 100% 0%, 0% 100%);
 }
 
-/* Dynamically rotate each segment */
-.segment:nth-child(1) { --i: 0; transform: rotate(0deg) translate(-100%, -100%); }
-.segment:nth-child(2) { --i: 1; transform: rotate(45deg) translate(-100%, -100%); }
-.segment:nth-child(3) { --i: 2; transform: rotate(90deg) translate(-100%, -100%); }
-.segment:nth-child(4) { --i: 3; transform: rotate(135deg) translate(-100%, -100%); }
-.segment:nth-child(5) { --i: 4; transform: rotate(180deg) translate(-100%, -100%); }
-.segment:nth-child(6) { --i: 5; transform: rotate(225deg) translate(-100%, -100%); }
-.segment:nth-child(7) { --i: 6; transform: rotate(270deg) translate(-100%, -100%); }
-.segment:nth-child(8) { --i: 7; transform: rotate(315deg) translate(-100%, -100%); }
+.segment span {
+  position: absolute;
+  right: 25%;
+  bottom: 35%;
+  transform: rotate(-22.5deg);
+}
+
+.segment:nth-child(1) { --i: 0; transform: rotate(0deg); }
+.segment:nth-child(2) { --i: 1; transform: rotate(45deg); }
+.segment:nth-child(3) { --i: 2; transform: rotate(90deg); }
+.segment:nth-child(4) { --i: 3; transform: rotate(135deg); }
+.segment:nth-child(5) { --i: 4; transform: rotate(180deg); }
+.segment:nth-child(6) { --i: 5; transform: rotate(225deg); }
+.segment:nth-child(7) { --i: 6; transform: rotate(270deg); }
+.segment:nth-child(8) { --i: 7; transform: rotate(315deg); }
 
 .pointer {
   position: absolute;
@@ -78,4 +82,16 @@ button {
 
 button:hover {
   background: #218838;
+}
+
+button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+#result {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  min-height: 30px;
 }
