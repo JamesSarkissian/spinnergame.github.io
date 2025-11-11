@@ -1,76 +1,65 @@
-:where(.ui-wheel-of-fortune) {
-  --_items: 12;
-  all: unset;
+.ui-wheel-of-fortune {
+  --items: 12;
   aspect-ratio: 1 / 1;
-  container-type: inline-size;
-  direction: ltr;
-  display: grid;
   position: relative;
+  display: grid;
+  place-items: center;
+  width: 300px;
+  border: none;
+  margin: 40px auto;
+}
+
+.ui-wheel-of-fortune::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25px solid crimson;
+  z-index: 10;
+}
+
+.ui-wheel-of-fortune ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  &::after {
-    aspect-ratio: 1/cos(30deg);
-    background-color: crimson;
-    clip-path: polygon(50% 100%,100% 0,0 0);
-    content: "";
-    height: 4cqi;
-    position: absolute;
-    place-self: start center;
-    scale: 1.4;
-  }
-
-  & > * { position: absolute; }
-
-  button {
-    aspect-ratio: 1 / 1;
-    background: hsla(0, 0%, 100%, .8);
-    border: 0;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 5cqi;
-    place-self: center;
-    width: 20cqi;
-  }
-
-  ul {
-    all: unset;
-    clip-path: inset(0 0 0 0 round 50%);
-    display: grid;
-    inset: 0;
-    place-content: center start;
-
-    li {
-      align-content: center;
-      aspect-ratio: 1 / calc(2 * tan(180deg / var(--_items)));
-      background: hsl(calc(360deg / var(--_items) * calc(var(--_idx))), 100%, 75%);
-      clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-      display: grid;
-      font-size: 5cqi;
-      grid-area: 1 / -1;
-      padding-left: 1ch;
-      rotate: calc(360deg / var(--_items) * calc(var(--_idx) - 1));
-      transform-origin: center right;
-      user-select: none;
-      width: 50cqi;
-
-      &:nth-of-type(1) { --_idx: 1; }
-      &:nth-of-type(2) { --_idx: 2; }
-      &:nth-of-type(3) { --_idx: 3; }
-      &:nth-of-type(4) { --_idx: 4; }
-      &:nth-of-type(5) { --_idx: 5; }
-      &:nth-of-type(6) { --_idx: 6; }
-      &:nth-of-type(7) { --_idx: 7; }
-      &:nth-of-type(8) { --_idx: 8; }
-      &:nth-of-type(9) { --_idx: 9; }
-      &:nth-of-type(10) { --_idx: 10; }
-      &:nth-of-type(11) { --_idx: 11; }
-      &:nth-of-type(12) { --_idx: 12; }
-    }
-  }
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(0deg);
 }
 
-/* for demo */
-* { box-sizing: border-box; }
-body {
-  font-family: system-ui, sans-serif;
-  padding: 5cqi;
+.ui-wheel-of-fortune li {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0% 0%;
+  background: hsl(calc(360deg / var(--items) * var(--i)), 80%, 60%);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  border: 1px solid white;
+  font-family: sans-serif;
+  font-size: 14px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
+
+/* Rotate each slice */
+.ui-wheel-of-fortune li:nth-child(1) { --i: 0; transform: rotate(0deg); }
+.ui-wheel-of-fortune li:nth-child(2) { --i: 1; transform: rotate(30deg); }
+.ui-wheel-of-fortune li:nth-child(3) { --i: 2; transform: rotate(60deg); }
+.ui-wheel-of-fortune li:nth-child(4) { --i: 3; transform: rotate(90deg); }
+.ui-wheel-of-fortune li:nth-child(5) { --i: 4; transform: rotate(120deg); }
+.ui-wheel-of-fortune li:nth-child(6) { --i: 5; transform: rotate(150deg); }
+.ui-wheel-of-fortune li:nth-
