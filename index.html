@@ -1,49 +1,61 @@
-<fieldset class="ui-wheel-of-fortune">
-  <ul>
-    <li>$1000</li>
-    <li>$2000</li>
-    <li>$3000</li>
-    <li>$4000</li>
-    <li>$5000</li>
-    <li>$6000</li>
-    <li>$7000</li>
-    <li>$8000</li>
-    <li>$9000</li>
-    <li>$10000</li>
-    <li>$11000</li>
-    <li>$12000</li>
-  </ul>
-  <button type="button">SPIN</button>
-</fieldset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fundraising Spinner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Fundraising Spinner</h1>
+    <div class="wheel-container">
+      <div class="wheel" id="wheel">
+        <div class="segment">💵 1</div>
+        <div class="segment">💵 5</div>
+        <div class="segment">💵 10</div>
+        <div class="segment">💵 20</div>
+        <div class="segment">💵 50</div>
+        <div class="segment">💵 100</div>
+        <div class="segment">💵 250</div>
+        <div class="segment">💸 1,000,000</div>
+      </div>
+      <div class="pointer">▼</div>
+    </div>
+    <button id="spinBtn">SPIN</button>
+    <p id="result"></p>
+  </div>
 
-<script>
-function wheelOfFortune(selector) {
-  const node = document.querySelector(selector);
-  if (!node) return;
+  <script>
+    const wheel = document.getElementById("wheel");
+    const spinBtn = document.getElementById("spinBtn");
+    const result = document.getElementById("result");
 
-  const spin = node.querySelector('button');
-  const wheel = node.querySelector('ul');
-  let animation;
-  let previousEndDegree = 0;
+    const segments = [1, 5, 10, 20, 50, 100, 250, 1000000];
+    let spinning = false;
 
-  spin.addEventListener('click', () => {
-    if (animation) animation.cancel();
+    spinBtn.addEventListener("click", () => {
+      if (spinning) return;
+      spinning = true;
+      result.textContent = "";
 
-    const randomAdditionalDegrees = Math.random() * 360 + 1800;
-    const newEndDegree = previousEndDegree + randomAdditionalDegrees;
+      // Random spin rotation (multiple full spins + random final position)
+      const randomIndex = Math.floor(Math.random() * segments.length);
+      const rotationPerSegment = 360 / segments.length;
+      const randomRotation =
+        360 * 5 + (segments.length - randomIndex - 1) * rotationPerSegment +
+        rotationPerSegment / 2;
 
-    animation = wheel.animate([
-      { transform: `rotate(${previousEndDegree}deg)` },
-      { transform: `rotate(${newEndDegree}deg)` }
-    ], {
-      duration: 4000,
-      easing: 'cubic-bezier(0.44,-0.205,0,1.13)',
-      fill: 'forwards'
+      wheel.style.transition = "transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)";
+      wheel.style.transform = `rotate(${randomRotation}deg)`;
+
+      // Determine result after spin
+      setTimeout(() => {
+        const value = segments[randomIndex];
+        result.textContent = `🎉 Suggested donation: $${value.toLocaleString()}!`;
+        spinning = false;
+      }, 4000);
     });
-
-    previousEndDegree = newEndDegree;
-  });
-}
-
-wheelOfFortune('.ui-wheel-of-fortune');
-</script>
+  </script>
+</body>
+</html>
