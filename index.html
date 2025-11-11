@@ -39,7 +39,6 @@
       spinning = true;
       result.textContent = "";
 
-      // Random spin rotation (multiple full spins + random final position)
       const randomIndex = Math.floor(Math.random() * segments.length);
       const rotationPerSegment = 360 / segments.length;
       const randomRotation =
@@ -49,7 +48,6 @@
       wheel.style.transition = "transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)";
       wheel.style.transform = `rotate(${randomRotation}deg)`;
 
-      // Determine result after spin
       setTimeout(() => {
         const value = segments[randomIndex];
         result.textContent = `🎉 Suggested donation: $${value.toLocaleString()}!`;
