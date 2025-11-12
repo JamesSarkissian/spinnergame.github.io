@@ -88,12 +88,6 @@ body{
     z-index: 20; /* make sure it’s above the wheel */
 }
 
-
-.arrow::before{
-	content:"\1F817";
-	font-size:50px;
-}
-
 #spin{
 	position: absolute;
 	top:50%;
