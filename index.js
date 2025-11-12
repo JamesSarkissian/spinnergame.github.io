@@ -12,5 +12,8 @@ btn.onclick = function () {
 	}
 	container.style.transform = "rotate(" + number + "deg)";
 	number += Math.ceil(Math.random() * 1000);
-	active = false;
 }
+
+container.addEventListener("transitionend", function () {
+	active = false; // allow next spin
+});
