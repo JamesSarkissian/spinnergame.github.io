@@ -12,7 +12,7 @@ btn.onclick = function () {
 	}
 	active = true;
 	container.style.transform = "rotate(" + number + "deg)";
-	number += Math.ceil(Math.random() * 1000);
+	number += Math.ceil(Math.random() * 2000) + 720;
 }
 
 container.addEventListener("transitionend", function () {
