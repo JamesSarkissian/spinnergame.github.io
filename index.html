@@ -1,61 +1,22 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fundraising Spinner</title>
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Spin Wheel</title>
 </head>
 <body>
-  <div class="container">
-    <h1>🎯 Fundraising Spinner</h1>
-    <div class="wheel-container">
-      <div class="wheel" id="wheel">
-        <div class="segment">💵 1</div>
-        <div class="segment">💵 5</div>
-        <div class="segment">💵 10</div>
-        <div class="segment">💵 20</div>
-        <div class="segment">💵 50</div>
-        <div class="segment">💵 100</div>
-        <div class="segment">💵 250</div>
-        <div class="segment">💸 1,000,000</div>
-      </div>
-      <div class="pointer">▼</div>
-    </div>
-    <button id="spinBtn">SPIN</button>
-    <p id="result"></p>
-  </div>
-
-  <script>
-    const wheel = document.getElementById("wheel");
-    const spinBtn = document.getElementById("spinBtn");
-    const result = document.getElementById("result");
-
-    const segments = [1, 5, 10, 20, 50, 100, 250, 1000000];
-    let spinning = false;
-
-    spinBtn.addEventListener("click", () => {
-      if (spinning) return;
-      spinning = true;
-      result.textContent = "";
-
-      // Random spin rotation (multiple full spins + random final position)
-      const randomIndex = Math.floor(Math.random() * segments.length);
-      const rotationPerSegment = 360 / segments.length;
-      const randomRotation =
-        360 * 5 + (segments.length - randomIndex - 1) * rotationPerSegment +
-        rotationPerSegment / 2;
-
-      wheel.style.transition = "transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)";
-      wheel.style.transform = `rotate(${randomRotation}deg)`;
-
-      // Determine result after spin
-      setTimeout(() => {
-        const value = segments[randomIndex];
-        result.textContent = `🎉 Suggested donation: $${value.toLocaleString()}!`;
-        spinning = false;
-      }, 4000);
-    });
-  </script>
+	<button id="spin">Spin</button>
+	<span class="arrow"></span>
+<div class="container">
+	<div class="1">1</div>
+	<div class="5">2</div>
+	<div class="10">3</div>
+	<div class="10">4</div>
+	<div class="20">5</div>
+	<div class="100">6</div>
+	<div class="10,000">7</div>
+	<div class="1,000,000">8</div>
+</div>
 </body>
 </html>
