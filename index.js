@@ -10,6 +10,7 @@ btn.onclick = function () {
 	if(active){
 		return;
 	}
+	active = true;
 	container.style.transform = "rotate(" + number + "deg)";
 	number += Math.ceil(Math.random() * 1000);
 }
