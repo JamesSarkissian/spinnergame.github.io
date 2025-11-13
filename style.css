@@ -21,7 +21,7 @@ body{
 	border:15px solid #dde;
 	position: relative;
 	overflow: hidden;
-	transition: transform 5s ease-out;
+	transition: 5s;
 }
 
 .container div{
@@ -75,17 +75,17 @@ body{
 	transform: rotate(315deg);
 }
 
-.arrow {
-    position: absolute;
-    top: -25px; /* slightly above the wheel */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 40px solid #fff; /* arrow color */
-    z-index: 20; /* make sure it’s above the wheel */
+.arrow{
+	position: absolute;
+	top:0;
+	left:50%;
+	transform: translateX(-50%);
+	color:#fff;
+}
+
+.arrow::before{
+	content:"\1F817";
+	font-size:50px;
 }
 
 #spin{
