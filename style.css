@@ -84,9 +84,10 @@ body{
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 30px solid white;
+    border-bottom: 30px solid red; /* ← change color */
     z-index: 9999;
 }
+
 
 #spin{
 	position: absolute;
