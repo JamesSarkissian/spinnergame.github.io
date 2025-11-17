@@ -78,16 +78,15 @@ body{
 .arrow {
     content: ' ';
     position: absolute;
-    top: 30%; /* moves it 70% down the screen */
+    top: 30px; 
     left: 50%;
-    transform: translateX(-50%) rotate(180deg);
+    transform: rotate(180deg);
     width: 40px;
     height: 40px;
 
     /* FIXED: valid red hex code */
     background: #ff0000;
 
-    /* triangle shape */
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     z-index: 9999;
 }
