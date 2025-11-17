@@ -76,16 +76,13 @@ body{
 }
 
 .arrow {
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 30px solid red; /* ← change color */
-    z-index: 9999;
+	content: ' ';
+	position: absolute;
+	top: -28px;
+	width: 80px;
+	height: 80px;
+	background: #fff;
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 
