@@ -78,7 +78,7 @@ body{
 .arrow {
     content: ' ';
     position: absolute;
-    top: 70vh; /* moves it 70% down the screen */
+    top: 30vh; /* moves it 70% down the screen */
     left: 50%;
     transform: translateX(-50%) rotate(180deg);
     width: 40px;
