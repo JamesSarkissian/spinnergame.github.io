@@ -11,8 +11,8 @@ btn.onclick = function () {
 		return;
 	}
 	active = true;
-	container.style.transform = "rotate(" + number + "deg)";
 	number += Math.ceil(Math.random() * 2000) + 720;
+	container.style.transform = "rotate(" + number + "deg)";
 }
 
 container.addEventListener("transitionend", function () {
