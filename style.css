@@ -1,110 +1,97 @@
-*{
-	box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-	margin:0;
-	padding:0;
-	background-color: #34495e;
-	display:flex;
-	align-items:center;
-	justify-content: center;
-	height:100vh;
-	overflow:hidden;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #34495e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.container{
-	width:500px;
-	height:500px;
-	background-color: #ccc;
-	border-radius:50%;
-	border:15px solid #dde;
-	position: relative;
-	overflow: hidden;
-	transition: 5s;
+/* NEW WRAPPER so arrow + wheel scale together */
+.wheel-wrapper {
+    position: relative;
+    width: 60vmin;     /* scales with screen */
+    height: 60vmin;
 }
 
-.container div{
-	height:50%;
-	width:200px;
-	position: absolute;
-	clip-path: polygon(100% 0 , 50% 100% , 0 0 );
-	transform:translateX(-50%);
-	transform-origin:bottom;
-	text-align:center;
-	display:flex;
-	align-items: center;
-	justify-content: center;
-	font-size:20px;
-	font-weight:bold;
-	font-family:sans-serif;
-	color:#fff;
-	left:135px;
+/* Wheel scales */
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 50%;
+    border: 2vmin solid #dde;
+    position: relative;
+    overflow: hidden;
+    transition: 5s;
 }
 
-.container .one{
-	background-color: #8000ff;
-	left:50%;
-}
-.container .two{
-	background-color: #00a0ff;
-	transform: rotate(45deg);
-}
-.container .three{
-	background-color: #8000ff;
-	transform:rotate(90deg);
-}
-.container .four{
-	background-color: #ff6666;
-	transform: rotate(135deg);
-}
-.container .five{
-	background-color: #8000ff;
-	transform: rotate(180deg);
-}
-.container .six{
-	background-color: #00a0ff;
-	transform: rotate(225deg);
-}
-.container .seven{
-	background-color: #8000ff;
-	transform: rotate(270deg);
-}
-.container .eight{
-	background-color: #ff6666;
-	transform: rotate(315deg);
+.container div {
+    height: 50%;
+    width: 25vmin;            /* scales */
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    transform: translateX(-50%);
+    transform-origin: bottom;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vmin;         /* scales */
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #fff;
+    left: 50%;
 }
 
-.arrow { 
-	content: ' '; 
-	position: absolute; 
-	top: 20vh; 
-	width: 50px; 
-	height: 50px; 
-	background: #ff0000;
-	transform: rotate(180deg); 
-	clip-path: polygon(50% 0%, 0% 100%, 100% 100%); 
+/* Colors + rotations */
+.container .one   { background-color: #8000ff; }
+.container .two   { background-color: #00a0ff; transform: rotate(45deg); }
+.container .three { background-color: #8000ff; transform: rotate(90deg); }
+.container .four  { background-color: #ff6666; transform: rotate(135deg); }
+.container .five  { background-color: #8000ff; transform: rotate(180deg); }
+.container .six   { background-color: #00a0ff; transform: rotate(225deg); }
+.container .seven { background-color: #8000ff; transform: rotate(270deg); }
+.container .eight { background-color: #ff6666; transform: rotate(315deg); }
+
+/* Arrow scales and stays fixed */
+.arrow {
+    position: absolute;
+    top: -5vmin;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    width: 10vmin;
+    height: 10vmin;
+    background: #ff3030;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    z-index: 20;
 }
 
+/* Spin button scales */
+#spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
 
+    background-color: #e2e2e2;
+    text-transform: uppercase;
+    border: 1vmin solid #fff;
+    font-weight: bold;
+    font-size: 3vmin;
+    color: #a2a2a2;
 
-#spin{
-	position: absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
-	z-index:10;
-	background-color: #e2e2e2;
-	text-transform: uppercase;
-	border:8px solid #fff;
-	font-weight:bold;
-	font-size:20px;
-	color:#a2a2a2;
-	width: 80px;
-	height:80px;
-	font-family: sans-serif;
-	border-radius:50%;
-	cursor: pointer;
-	outline:none;
-	letter-spacing: 1px;
+    width: 12vmin;
+    height: 12vmin;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 0.2vmin;
 }
