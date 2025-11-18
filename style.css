@@ -25,7 +25,7 @@ body{
 }
 
 .container div{
-	height:50%;
+	height:30%;
 	width:200px;
 	position: absolute;
 	clip-path: polygon(100% 0 , 50% 100% , 0 0 );
