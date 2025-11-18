@@ -6,7 +6,7 @@ let clicks = 0;
 let active = false;
 
 const degreeTable = [
-  { Amount: 1,000,000, start: 337.5, end: 22.5 },
+  { Amount: 1000000, start: 337.5, end: 22.5 },
   { Amount: 5, start: 22.5,  end: 67.5 },
   { Amount: 20, start: 67.5,  end: 112.5 },
   { Amount: 10, start: 112.5, end: 157.5 },
