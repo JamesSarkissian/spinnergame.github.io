@@ -24,9 +24,9 @@ function getSection(spinDegree) {
 
     if (start > end) {
       // Wrap-around case (section 1)
-      if (normalized >= start || normalized < end) return section;
+      if (normalized >= start || normalized < end) return Amount;
     } else {
-      if (normalized >= start && normalized < end) return section;
+      if (normalized >= start && normalized < end) return Amount;
     }
   }
   return null; // should never happen
