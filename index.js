@@ -1,6 +1,6 @@
 let container = document.querySelector(".container");
 let btn = document.getElementById("spin");
-let number = Math.ceil(Math.random() * 1000);
+let number = 0;
 
 let clicks = 0;
 let active = false;
@@ -11,7 +11,7 @@ btn.onclick = function () {
 		return;
 	}
 	active = true;
-	number += Math.ceil(Math.random() * 2000) + 720;
+	number = Math.ceil(Math.random() * 2000) + 720;
 	container.style.transform = "rotate(" + number + "deg)";
 }
 
