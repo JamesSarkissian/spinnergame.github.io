@@ -77,7 +77,12 @@ body{
 	transform: rotate(315deg);
 }
 
+.bigContainer {
+	width: min-content;
+	height: min-content;
+}
 .arrow { 
+	position: absolute;
 	content: ' '; 
 	top: 0px; 
 	align-items: center;
