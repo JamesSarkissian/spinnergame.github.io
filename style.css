@@ -133,6 +133,7 @@ body{
   text-align: center;
   color: #222;
   transform-origin: center;
+  font-family: 'Fredoka', sans-serif;
 }
 
 /* top-left X button */
@@ -161,7 +162,7 @@ body{
   margin: 6px 0 18px;
   font-size: 28px;
   font-weight: 800;
-  color: #d35400; /* money color, change if you want */
+  color: #FFD700; /* money color, change if you want */
 }
 
 /* OK button */
