@@ -43,8 +43,21 @@ btn.onclick = function () {
 	container.style.transform = "rotate(" + number + "deg)";
 }
 
+
+
+
+function showPopup(value) {
+    document.getElementById("popup-text").textContent = "You won: " + value;
+    document.getElementById("popup").style.display = "flex";
+}
+
+document.getElementById("close-popup").addEventListener("click", () => {
+    document.getElementById("popup").style.display = "none";
+});
+
 container.addEventListener("transitionend", function () {
 	active = false; // allow next spin
 
 	console.log(getSection(number));
+	showPopup(number);
 });
