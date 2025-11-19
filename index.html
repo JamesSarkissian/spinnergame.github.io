@@ -10,12 +10,20 @@
 </head>
 <body>
 
-	<div id="popup" class="popup">
-    	<div class="popup-content">
-        	<p id="popup-text"></p>
-        	<button id="close-popup">OK</button>
-    	</div>
+<!-- POPUP -->
+	<div id="popup" class="popup" aria-hidden="true">
+  		<div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    		<button id="popup-close" class="popup-close" aria-label="Close">✕</button>
+
+    		<h2 id="popup-title" class="popup-title">You won</h2>
+    		<p id="popup-text" class="popup-text">0</p>
+
+    		<div class="popup-actions">
+      			<button id="popup-ok" class="popup-ok">OK</button>
+    		</div>
+  		</div>
 	</div>
+
 	
 	<button id="spin">Spin</button>
 	<div class="container">
