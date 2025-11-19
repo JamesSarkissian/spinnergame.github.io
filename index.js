@@ -39,7 +39,7 @@ btn.onclick = function () {
 		return;
 	}
 	active = true;
-	number += Math.ceil(Math.random() * 2000) + 720;
+	number += Math.ceil(Math.random() * 1500) + 720;
 	container.style.transform = "rotate(" + number + "deg)";
 }
 
