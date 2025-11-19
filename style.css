@@ -79,7 +79,6 @@ body{
 
 .arrow { 
 	content: ' '; 
-	position: absolute; 
 	top: 0px; 
 	align-items: center;
 	width: 50px; 
