@@ -87,13 +87,12 @@ body{
 	display: block;
   	width: 40px;
   	height: 40px;
-  	background: #800000;          /* dark red */
+  	background: ##ff0000;          /* dark red */
   	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   
   	/* center above the wheel without absolute */
   	margin: 0 auto;
-  	transform: translateY(-50%) rotate(180deg);
-
+  	transform: translateY(-1211%) rotate(180deg);
 }
 
 
