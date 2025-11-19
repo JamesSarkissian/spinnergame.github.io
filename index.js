@@ -43,21 +43,50 @@ btn.onclick = function () {
 	container.style.transform = "rotate(" + number + "deg)";
 }
 
-
-
-
-function showPopup(value) {
-    document.getElementById("popup-text").textContent = "You won: " + value;
-    document.getElementById("popup").style.display = "flex";
-}
-
-document.getElementById("close-popup").addEventListener("click", () => {
-    document.getElementById("popup").style.display = "none";
-});
-
 container.addEventListener("transitionend", function () {
 	active = false; // allow next spin
 
 	console.log(getSection(number));
-	showPopup(number);
+	showPopup(getSection(number));
+});
+
+
+// POPUP
+
+// popup helpers
+const popup = document.getElementById('popup');
+const popupText = document.getElementById('popup-text');
+const popupClose = document.getElementById('popup-close');
+const popupOk = document.getElementById('popup-ok');
+
+// show popup with a numeric or string amount
+function showPopup(amount) {
+  // format amount (if it's a number)
+  let display = amount;
+  if (typeof amount === 'number') {
+    // show with commas
+    display = amount.toLocaleString();
+  }
+  popupText.textContent = display;
+  popup.setAttribute('aria-hidden', 'false');
+  popup.style.display = 'flex';
+  // optionally add an attribute so clicking overlay closes
+  // popup.dataset.outside = "true";
+}
+
+// close/hide popup
+function hidePopup() {
+  popup.style.display = 'none';
+  popup.setAttribute('aria-hidden', 'true');
+}
+
+// close button
+popupClose.addEventListener('click', hidePopup);
+popupOk.addEventListener('click', hidePopup);
+
+// optional: clicking the dark overlay (outside the box) closes popup
+popup.addEventListener('click', function (e) {
+  if (e.target === popup) { // clicked directly on overlay
+    hidePopup();
+  }
 });
