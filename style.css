@@ -155,12 +155,12 @@ body{
 /* title and amount */
 .popup-title {
   margin: 6px 0 8px;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
 }
 .popup-text {
   margin: 6px 0 18px;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: 800;
   color: #FFD700; /* money color, change if you want */
 }
