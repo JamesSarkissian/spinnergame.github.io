@@ -49,7 +49,7 @@ body{
 	left:50%;
 }
 .container .two{
-	background-color: #00a0ff;
+	background-color: #8000ff;
 	transform: rotate(45deg);
 }
 .container .three{
@@ -57,7 +57,7 @@ body{
 	transform:rotate(90deg);
 }
 .container .four{
-	background-color: #ff6666;
+	background-color: #8000ff;
 	transform: rotate(135deg);
 }
 .container .five{
@@ -65,7 +65,7 @@ body{
 	transform: rotate(180deg);
 }
 .container .six{
-	background-color: #00a0ff;
+	background-color: #8000ff;
 	transform: rotate(225deg);
 }
 .container .seven{
@@ -73,7 +73,7 @@ body{
 	transform: rotate(270deg);
 }
 .container .eight{
-	background-color: #ff6666;
+	background-color: #8000ff;
 	transform: rotate(315deg);
 }
 
