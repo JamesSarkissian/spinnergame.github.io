@@ -167,14 +167,16 @@ body{
 
 /* OK button */
 .popup-actions .popup-ok {
-  padding: 8px 18px;
-  border-radius: 8px;
+  padding: 14px 28px;       /* taller and wider */
+  border-radius: 12px;      /* proportional rounded corners */
   border: none;
   background: #34495e;
   color: #fff;
+  font-size: 20px;          /* larger text */
   font-weight: 700;
   cursor: pointer;
 }
+
 .popup-actions .popup-ok:hover { opacity: 0.95; }
 
 /* Optional: allow clicking outside content to close */
