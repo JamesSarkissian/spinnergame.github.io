@@ -67,7 +67,7 @@ function showPopup(amount) {
     // show with commas
     display = amount.toLocaleString();
   }
-  popupText.textContent = display;
+  popupText.textContent = display + "$";
   popup.setAttribute('aria-hidden', 'false');
   popup.style.display = 'flex';
   // optionally add an attribute so clicking overlay closes
