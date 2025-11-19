@@ -13,28 +13,6 @@ body{
 	overflow:hidden;
 }
 
-.popup {
-    display: none;         /* THIS hides it on page load */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-content {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    font-size: 20px;
-    text-align: center;
-}
-
-
-
 .container{
 	width:500px;
 	height:500px;
@@ -132,3 +110,72 @@ body{
 	outline:none;
 	letter-spacing: 1px;
 }
+
+/* overlay */
+.popup {
+  display: none;              /* hidden initially */
+  position: fixed;
+  inset: 0;                   /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;              /* ensure it's above everything (wheel, etc) */
+}
+
+/* popup box */
+.popup-content {
+  position: relative;
+  width: min(92vw, 420px);    /* responsive width */
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  text-align: center;
+  color: #222;
+  transform-origin: center;
+}
+
+/* top-left X button */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
+  color: #666;
+  border-radius: 6px;
+}
+.popup-close:hover { background: rgba(0,0,0,0.05); color: #111; }
+
+/* title and amount */
+.popup-title {
+  margin: 6px 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.popup-text {
+  margin: 6px 0 18px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #d35400; /* money color, change if you want */
+}
+
+/* OK button */
+.popup-actions .popup-ok {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #34495e;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.popup-actions .popup-ok:hover { opacity: 0.95; }
+
+/* Optional: allow clicking outside content to close */
+.popup[data-outside="true"] { pointer-events: auto; }
+
