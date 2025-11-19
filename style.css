@@ -150,8 +150,10 @@ body{
   color: #FF0000;
   border-radius: 6px;
 }
-.popup-close:hover { background: rgba(0,0,0,0.05); color: #111; }
-
+.popup-close:hover {
+  background: rgba(0,0,0,0.05);
+  color: #800000; /* dark red */
+}
 /* title and amount */
 .popup-title {
   margin: 6px 0 8px;
@@ -162,7 +164,7 @@ body{
   margin: 6px 0 18px;
   font-size: 40px;
   font-weight: 800;
-  color: #FFD700; /* money color, change if you want */
+  color: #00FF00; /* money color, change if you want */
 }
 
 /* OK button */
