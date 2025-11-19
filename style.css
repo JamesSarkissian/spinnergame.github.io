@@ -13,13 +13,18 @@ body{
 	overflow:hidden;
 }
 
+.bigContainer {
+	position: relative;           /* contains the arrow */
+  	display: inline-block;
+}
+
 .container{
 	width:500px;
 	height:500px;
 	background-color: #ccc;
 	border-radius:50%;
 	border:15px solid #dde;
-	position: relative;
+	/* position: relative; */
 	overflow: hidden;
 	transition: 5s;
 }
@@ -77,20 +82,18 @@ body{
 	transform: rotate(315deg);
 }
 
-.bigContainer {
-	width: min-content;
-	height: min-content;
-}
+
 .arrow { 
-	position: absolute;
-	content: ' '; 
-	top: 0px; 
-	align-items: center;
-	width: 50px; 
-	height: 50px; 
-	background: #ff0000;
-	transform: rotate(180deg); 
-	clip-path: polygon(50% 0%, 0% 100%, 100% 100%); 
+	display: block;
+  	width: 40px;
+  	height: 40px;
+  	background: #800000;          /* dark red */
+  	clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  
+  	/* center above the wheel without absolute */
+  	margin: 0 auto;
+  	transform: translateY(-50%) rotate(180deg);
+
 }
 
 
