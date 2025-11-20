@@ -14,8 +14,10 @@ body{
 }
 
 .bigContainer {
-	position: relative;           /* contains the arrow */
-  	display: inline-block;
+	position: relative;
+    display: inline-block;
+    width: 500px;
+    height: 500px;
 }
 
 .container{
