@@ -213,3 +213,53 @@ body{
 
 /* Optional: allow clicking outside content to close */
 .popup[data-outside="true"] { pointer-events: auto; }
+
+
+/*Donation stuff */
+
+.Dono-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;             /* hidden until JS shows it */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Popup box container */
+.Dono-popup-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Dono-popup-close {
+    position: absolute;
+    top: 0px;
+    left: 6px;
+    border: none;
+    background: transparent;
+    font-size: 40px;
+    line-height: 1;
+    padding: 6px;
+    cursor: pointer;
+    color: #FF0000;
+    border-radius: 6px;
+}
+
+.Dono-popup-close:hover {
+    background: rgba(0,0,0,0.05);
+    color: #800000;
+}
+
+/* Image styling */
+.Dono-popup-content img {
+    max-width: 85vw;   /* takes up most of the screen width */
+    max-height: 85vh;  /* takes up most of the screen height */
+    border-radius: 12px;
+    object-fit: contain;
+}
