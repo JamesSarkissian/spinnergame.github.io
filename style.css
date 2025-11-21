@@ -14,10 +14,14 @@ body{
 }
 
 .bigContainer {
-	position: relative;
-    display: inline-block;
-    width: 500px;
-    height: 500px;
+  position: relative;
+  width: 90vmin;  /* scales with viewport */
+  height: 90vmin;
+  max-width: 500px;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container{
@@ -99,25 +103,25 @@ body{
 
 
 
-#spin{
-	position: absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%);
-	z-index:10;
-	background-color: #e2e2e2;
-	text-transform: uppercase;
-	border:8px solid #fff;
-	font-weight:bold;
-	font-size:20px;
-	color:#FF0000;
-	width: 80px;
-	height:80px;
-	font-family: sans-serif;
-	border-radius:50%;
-	cursor: pointer;
-	outline:none;
-	letter-spacing: 1px;
+#spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfectly centers regardless of container size */
+  z-index: 10;
+  background-color: #e2e2e2;
+  text-transform: uppercase;
+  border: 8px solid #fff;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FF0000;
+  width: 80px;
+  height: 80px;
+  font-family: sans-serif;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 1px;
 }
 
 /* overlay */
