@@ -56,11 +56,11 @@ btn.onclick = function () {
 		return;
 	}
 	active = true;
-	let rotation = 720;
+
 	if (clicks % 2 == 0) {
 		let remainder = number % 360;
 		let correction = getCorrection(remainder);
-		number += rotation + correction;
+		number += 1080 + correction;
 		container.style.transform = "rotate(" + number + "deg)";
 	} else {
 		number += Math.ceil(Math.random() * 1500) + 720;
