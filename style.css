@@ -219,12 +219,12 @@ body{
 
 .Dono-popup {
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    display: none;             /* hidden until JS shows it */
+    inset: 0;                    /* cover the entire viewport */
+    background: rgba(0, 0, 0, 0.55); /* semi-transparent overlay */
+    display: none;               /* hidden until JS shows it */
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 9999;               /* above everything else */
 }
 
 /* Popup box container */
@@ -242,8 +242,8 @@ body{
 
 .Dono-popup-close {
     position: absolute;
-    top: -32px;
-    left: -19px;
+    top: -40px;                  /* above the top of the box */
+    left: -40px;                 /* to the left of the box */
     border: none;
     background: transparent;
     font-size: 50px;
@@ -252,7 +252,9 @@ body{
     cursor: pointer;
     color: #FF0000;
     border-radius: 6px;
+    z-index: 10;
 }
+
 
 .Dono-popup-close:hover {
     background: rgba(0,0,0,0.05);
@@ -261,8 +263,9 @@ body{
 
 /* Image styling */
 .Dono-popup-content img {
-    max-width: 85vw;   /* takes up most of the screen width */
-    max-height: 85vh;  /* takes up most of the screen height */
+    width: 100%;                 /* take full width of the popup box */
+    height: 100%;                /* take full height of the popup box */
+    object-fit: contain;         /* maintain aspect ratio */
     border-radius: 12px;
-    object-fit: contain;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* optional: make it pop */
 }
