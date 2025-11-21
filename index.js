@@ -69,6 +69,12 @@ btn.onclick = function () {
 
 }
 
+container.addEventListener("transitionend", function () {
+	active = false; // allow next spin
+
+	console.log(getSection(number));
+	showPopup(getSection(number));
+});
 
 // POPUP
 
