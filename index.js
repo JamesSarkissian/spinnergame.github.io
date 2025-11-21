@@ -33,15 +33,38 @@ function getSection(spinDegree) {
 }
 
 btn.onclick = function () {
-  clicks += 1;
+  if (active) return;
+  active = true;
 
-	if(active){
-		return;
-	}
-	active = true;
-	number += Math.ceil(Math.random() * 1500) + 720;
-	container.style.transform = "rotate(" + number + "deg)";
-}
+  clicks++;
+
+  const forceLand = (clicks % 2 === 0); // land every other time
+
+  if (forceLand) {
+
+    let forcedOffset;
+
+    // Randomly choose either the left or right part of the wrap range
+    if (Math.random() < 0.5) {
+      // 337.5 → 360
+      forcedOffset = 337.5 + Math.random() * (360 - 337.5);
+    } else {
+      // 0 → 22.5
+      forcedOffset = Math.random() * 22.5;
+    }
+
+    // Apply forced location + 4 full spins
+    number = number + 1440 + forcedOffset;
+
+  } else {
+
+    // NORMAL RANDOM SPIN
+    number += Math.ceil(Math.random() * 1500) + 720;
+  }
+
+  container.style.transform = "rotate(" + number + "deg)";
+};
+
 
 container.addEventListener("transitionend", function () {
 	active = false; // allow next spin
