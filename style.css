@@ -230,8 +230,8 @@ body{
 /* Popup box container */
 .Dono-popup-content {
     position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 100vw;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,11 +239,11 @@ body{
 
 .Dono-popup-close {
     position: absolute;
-    top: 0px;
-    left: 6px;
+    top: -32px;
+    left: -19px;
     border: none;
     background: transparent;
-    font-size: 40px;
+    font-size: 50px;
     line-height: 1;
     padding: 6px;
     cursor: pointer;
