@@ -100,7 +100,7 @@ body{
 #spin {
   position: fixed;             /* fixed to viewport instead of container */
   top: 50%;                    /* vertical center */
-  left: 50%;                   /* horizontal center */
+  left: 50vw;                   /* horizontal center */
   transform: translate(-50%, -50%);
   z-index: 10;
   background-color: #e2e2e2;
