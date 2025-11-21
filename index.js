@@ -76,42 +76,82 @@ container.addEventListener("transitionend", function () {
 	showPopup(getSection(number));
 });
 
-// POPUP
-
-// popup helpers
+// Main popup elements
 const popup = document.getElementById('popup');
 const popupText = document.getElementById('popup-text');
 const popupClose = document.getElementById('popup-close');
 const popupOk = document.getElementById('popup-ok');
+const popupDonate = document.getElementById('popup-donate');
 
-// show popup with a numeric or string amount
+// Donation frame elements
+const DonoFrame = document.getElementById('Dono-popup');
+const DonoClose = document.getElementById('Dono-popup-close');
+
+// -----------------------------
+// MAIN POPUP FUNCTIONS
+// -----------------------------
+
 function showPopup(amount) {
-  // format amount (if it's a number)
-  let display = amount;
-  if (typeof amount === 'number') {
-    // show with commas
-    display = amount.toLocaleString();
-  }
-  popupText.textContent = display + "$";
-  popup.setAttribute('aria-hidden', 'false');
-  popup.style.display = 'flex';
-  // optionally add an attribute so clicking overlay closes
-  // popup.dataset.outside = "true";
+    let display = amount;
+
+    // formatted number
+    if (typeof amount === 'number') {
+        display = amount.toLocaleString();
+    }
+
+    popupText.textContent = display + "$";
+
+    popup.style.display = 'flex';
+    popup.setAttribute('aria-hidden', 'false');
 }
 
-// close/hide popup
 function hidePopup() {
-  popup.style.display = 'none';
-  popup.setAttribute('aria-hidden', 'true');
+    popup.style.display = 'none';
+    popup.setAttribute('aria-hidden', 'true');
 }
 
-// close button
+// -----------------------------
+// DONATION FRAME FUNCTIONS
+// -----------------------------
+
+function showDono() {
+    DonoFrame.style.display = 'flex';
+    DonoFrame.setAttribute('aria-hidden', 'false');
+}
+
+function hideDono() {
+    DonoFrame.style.display = 'none';
+    DonoFrame.setAttribute('aria-hidden', 'true');
+}
+
+// -----------------------------
+// EVENT LISTENERS
+// -----------------------------
+
+// Close main popup
 popupClose.addEventListener('click', hidePopup);
 popupOk.addEventListener('click', hidePopup);
 
-// optional: clicking the dark overlay (outside the box) closes popup
-popup.addEventListener('click', function (e) {
-  if (e.target === popup) { // clicked directly on overlay
-    hidePopup();
-  }
+// Open donation frame from popup
+popupDonate.addEventListener('click', function () {
+    hidePopup();   // hide main popup
+    showDono();    // show donation frame
 });
+
+// Close donation frame
+DonoClose.addEventListener('click', hideDono);
+
+// Close popup by clicking overlay
+popup.addEventListener('click', function (e) {
+    if (e.target === popup) {
+        hidePopup();
+    }
+});
+
+// Close donation frame by clicking overlay (optional)
+DonoFrame.addEventListener('click', function (e) {
+    if (e.target === DonoFrame) {
+        hideDono();
+    }
+});
+
