@@ -42,7 +42,7 @@ function getCorrection(remainder) {
 
 	if (remainder < 337.5) {
 		// Go up to 337.5 region
-		return 337.5 - remainder;
+		return 337.5 - remainder + (math.random * 22);
 	}
 
 	// Should never reach here, but fallback:
