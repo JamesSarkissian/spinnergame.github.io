@@ -32,46 +32,42 @@ function getSection(spinDegree) {
   return null; // should never happen
 }
 
+function getCorrection(remainder) {
+	// Already in the allowed region
+	if (remainder >= 337.5 || remainder < 22.5) {
+		return 0;
+	}
+
+	// If between 22.5 and 337.5, snap to nearest valid boundary
+
+	if (remainder < 337.5) {
+		// Go up to 337.5 region
+		return 337.5 - remainder;
+	}
+
+	// Should never reach here, but fallback:
+	return (360 - remainder);
+}
+
 btn.onclick = function () {
-  if (active) return;
-  active = true;
+  clicks += 1;
 
-  clicks++;
+	if(active){
+		return;
+	}
+	active = true;
+	let rotation = 720;
+	if (clicks % 2 == 0) {
+		let remainder = number % 360;
+		let correction = getCorrection(remainder);
+		number += rotation + correction;
+		container.style.transform = "rotate(" + number + "deg)";
+	} else {
+		number += Math.ceil(Math.random() * 1500) + 720;
+		container.style.transform = "rotate(" + number + "deg)";
+	}
 
-  const forceLand = (clicks % 2 === 0); // land every other time
-
-  if (forceLand) {
-
-    let forcedOffset;
-
-    // Randomly choose either the left or right part of the wrap range
-    if (Math.random() < 0.5) {
-      // 337.5 → 360
-      forcedOffset = 337.5 + Math.random() * (360 - 337.5);
-    } else {
-      // 0 → 22.5
-      forcedOffset = Math.random() * 22.5;
-    }
-
-    // Apply forced location + 4 full spins
-    number = number + 1440 + forcedOffset;
-
-  } else {
-
-    // NORMAL RANDOM SPIN
-    number += Math.ceil(Math.random() * 1500) + 720;
-  }
-
-  container.style.transform = "rotate(" + number + "deg)";
-};
-
-
-container.addEventListener("transitionend", function () {
-	active = false; // allow next spin
-
-	console.log(getSection(number));
-	showPopup(getSection(number));
-});
+}
 
 
 // POPUP
