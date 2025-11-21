@@ -60,7 +60,7 @@ btn.onclick = function () {
 	if (clicks % 2 == 0) {
 		let remainder = number % 360;
 		let correction = getCorrection(remainder);
-		number += 1440 + correction;
+		number += 1800 + correction;
 		container.style.transform = "rotate(" + number + "deg)";
 	} else {
 		number += Math.ceil(Math.random() * 1500) + 720;
